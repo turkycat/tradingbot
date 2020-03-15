@@ -8,8 +8,8 @@ owner: Jesse Frush
 email: jesse.frush@gmail.com
 linkedin_url: linkedin.com/in/jessefrush/
 description: automate() the stock market
-url: "https://turkycat.github.io/tradingbot"
-baseurl: ""
+url: "https://turkycat.github.io"
+baseurl: "/tradingbot"
 twitter_username: turkycat
 github_username:  turkycat
 show_downloads: true

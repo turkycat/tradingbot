@@ -4,11 +4,11 @@ title: segmentation fault
 date: 2020-03-14 14:10:58 -0700
 imageroot: /images/d0
 category: March 2020
-permalink: /
-redirect_from: /2020/Mar/segmentation-fault
+permalink: /tradingbot
+redirect_from: /tradingbot/2020/Mar/segmentation-fault
 ---
 
-# day 00: march 14th, 2020
+# day 0: march 14th, 2020
 
 I'm using this project and blog to keep track of my learning and development process. This is the first day, where I spent most of it setting up this blog.
 
@@ -79,11 +79,11 @@ closeCandle(candle &data, price close)
 
  These vary greatly depending on the timeframe being used. For example, the following image represents just over four hours of time data for the SPDR S&P500 ETF yesterday, March 13th 2020.
 
-![March 13, 2020]({{site.images}}d0/march-13-2020-minute.png)
+![March 13, 2020]({{site.baseurl}}{{imageroot}}/d0/march-13-2020-minute.png)
 
 While the next image represents the same period of time, but on a 5 minute timeframe.
 
-![March 13, 2020]({{site.images}}d0/march-13-2020-5minute.png)  
+![March 13, 2020]({{site.baseurl}}{{imageroot}}/d0/march-13-2020-5minute.png)  
 the same overall pattern can be observed, but it is important to note that when it comes to historical data, TradingView (and most data sources, as I currently understand it) only save OHLC data. However, when observing real time data, hundreds of data points may be processed per candle, with only a single 4-point set of data (`price_data`) retained after the time period ends.
 
 The takeaway here is that there may be behavioral differences with a software application that is developed using historical data and ran on live data. I'll table this for now, but it may be useful to restrict decision trees to only be executed at the close of a candle
