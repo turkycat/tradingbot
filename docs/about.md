@@ -4,14 +4,16 @@ title: About
 permalink: /about/
 ---
 
+[>> go back]({{site.url}})
+
 # contact me
   
-![Site Owner](/assets/images/jesse.png){:height="300" width="320"}
+![Site Owner](/assets/images/jesse.png){:height="250" width="270"}
 
-Jesse Frush  
-email: [jesse.frush@gmail.com](mailto:jesse.frush@gmail.com)  
-linkedin: [linkedin.com/in/jessefrush/](https://www.linkedin.com/in/jessefrush/)  
-twitter: [@turkycat](https://twitter.com/turkycat)
+{{site.owner}}  
+email: [{{site.email}}](mailto:{{site.email}})  
+linkedin: [{{site.linkedin_url}}](https://www.{{site.linkedin_url}})  
+twitter: [@{{site.twitter_username}}](https://twitter.com/{{site.twitter_username}})
 
 # about the blog
 
