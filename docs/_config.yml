@@ -14,7 +14,7 @@ twitter_username: turkycat
 github_username:  turkycat
 show_downloads: true
 google_analytics:
-github:
+#github: [metadata]
 images: /assets/images/
 logo: /assets/images/logo.png
 about: /about
