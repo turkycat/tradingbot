@@ -1,6 +1,7 @@
 ---
-layout: post
+layout: default
 title:  "Welcome to Jekyll!"
+permalink: /jk/
 date:   2020-03-14 20:14:58 -0700
 categories: jekyll update
 ---

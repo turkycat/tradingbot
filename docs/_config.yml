@@ -8,13 +8,15 @@ owner: Jesse Frush
 email: jesse.frush@gmail.com
 linkedin_url: linkedin.com/in/jessefrush/
 description: automate() the stock market
+url: "https://turkycat.github.io/tradingbot"
 baseurl: ""
-url: "https://turkycat.github.io"
 twitter_username: turkycat
 github_username:  turkycat
 show_downloads: true
 google_analytics:
-github: [metadata]
+github:
+  is_project_page: true
+img_root: /assets/images/
 logo: /assets/images/logo.png
 
 # jekyll build settings
@@ -46,5 +48,5 @@ exclude:
   - vendor/ruby/
 
 include:
-  _layouts/
-  assets/
+  - _layouts/
+  - assets/

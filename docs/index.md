@@ -8,9 +8,4 @@ layout: default
 # tradingbot
 
 - [About](about)
-
-```
-test
-```
-
-`test_single`
+- [March 13, 2020](d0)

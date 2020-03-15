@@ -1,0 +1,10 @@
+---
+---
+@import "{{ site.theme }}";
+
+body { padding: 20px; }
+
+
+.wrapper { width: 100%; margin: 0 auto; }
+header { width: 300px; margin-right: 20px; float: left; position: fixed; -webkit-font-smoothing: subpixel-antialiased; }
+section { width: calc(100% - 340px); float: right; padding-bottom: 50px; }
