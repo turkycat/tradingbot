@@ -20,10 +20,12 @@ logo: /assets/images/logo.png
 about: /about
 
 # jekyll build settings
+#remote_theme: pages-themes/minimal
 theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-include-cache
 
 lsi: false
 safe: true
@@ -49,7 +51,10 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - minimal
 
 include:
   - _layouts/
+  - _posts/
+  - _sass/
   - assets/
