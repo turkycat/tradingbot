@@ -46,3 +46,5 @@ exclude:
   - vendor/ruby/
 
 include:
+  _layouts/
+  assets/
