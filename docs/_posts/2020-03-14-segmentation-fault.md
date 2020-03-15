@@ -8,7 +8,7 @@ permalink: /
 redirect_from: /2020/Mar/segmentation-fault
 ---
 
-# day 0: march 14th, 2020
+# day 00: march 14th, 2020
 
 I'm using this project and blog to keep track of my learning and development process. This is the first day, where I spent most of it setting up this blog.
 
