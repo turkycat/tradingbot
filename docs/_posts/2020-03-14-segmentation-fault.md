@@ -2,7 +2,7 @@
 layout: default
 title: segmentation fault
 date: 2020-03-14 14:10:58 -0700
-imageroot: /assets/images/d0
+imageroot: /images/d0
 category: March 2020
 permalink: /
 redirect_from: /2020/Mar/segmentation-fault
