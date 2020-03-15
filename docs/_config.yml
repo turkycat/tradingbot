@@ -21,11 +21,12 @@ about: /about
 
 # jekyll build settings
 #remote_theme: pages-themes/minimal
-theme: jekyll-theme-minimal
+#theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
   - jekyll-include-cache
+  - jekyll-seo-tag
 
 lsi: false
 safe: true
