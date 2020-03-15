@@ -6,6 +6,3 @@ layout: default
 ---
 
 # tradingbot
-
-- [About](about)
-- [March 13, 2020](d0)
