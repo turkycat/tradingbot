@@ -8,7 +8,7 @@ permalink: /about/
 
 # contact me
   
-![Site Owner](/assets/images/jesse.png){:height="250" width="270"}
+![Site Owner]({{ site.images }}/jesse.png){:height="250" width="270"}
 
 {{site.owner}}  
 email: [{{site.email}}](mailto:{{site.email}})  

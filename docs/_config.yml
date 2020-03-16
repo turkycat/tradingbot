@@ -15,9 +15,10 @@ github_username:  turkycat
 show_downloads: true
 google_analytics:
 #github: [metadata]
-images: /images/
-logo: /images/logo.png
+images: /assets/images
+logo: /assets/images/logo.png
 about: /about
+css-path: /assets/css/style.css?v=
 
 # jekyll build settings
 remote_theme: turkycat/minimal
