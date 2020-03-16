@@ -13,6 +13,8 @@ year: 2020
 *
 {% endcomment %}
 
+{% assign postyear = post.date | date: "%Y" | plus: 0 %}
+
 <ul>
 {% for post in site.posts %}
   {% assign postmonth = post.date | date: "%m" | remove: '0' | plus: 0 %}
