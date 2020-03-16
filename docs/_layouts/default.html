@@ -29,11 +29,6 @@
         </ul>
         {% endif %}
 
-        css:
-        {{ site.css }}
-        css-path:
-        {{ site.css-path }}
-
         Posts by recent history:<br/>
         {% for category in site.categories %}
         {%- assign catpath = category[0] -%}

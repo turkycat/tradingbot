@@ -15,8 +15,8 @@ github_username:  turkycat
 show_downloads: true
 google_analytics:
 #github: [metadata]
-images: /assets/images
-logo: /assets/images/logo.png
+images: /images
+logo: /images/logo.png
 about: /about
 css-path: /assets/css/style.css?v=
 
@@ -40,7 +40,27 @@ kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
 
-permalink: /:year/:short_month/:title
+permalink: /:year/:month/:title
+
+collections:
+  bymonth:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+#      excerpt_separator: <!--preview-->
+      start_exerpt: <!--start-->
+      end_exerpt: <!--end-->      
+  - scope:
+      path: ""
+      type: "bymonth"
+    values:
+#      layout: monthly
+      layout: default
+      permalink: /:title
 
 # processing controls
 exclude:
