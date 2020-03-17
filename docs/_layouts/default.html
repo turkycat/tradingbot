@@ -33,7 +33,7 @@
 
         Posts by recent history:<br/>
         {% for month in site.month %}
-        <a href="{{ month.url }}">{{ month.title }}</a><br/>
+        <a href="{{ month.url | relative_url }}">{{ month.title }}</a><br/>
         {% endfor %}
 
       </header>
