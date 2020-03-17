@@ -21,7 +21,7 @@
         <br/><br/>
         <div class="language-plaintext highlighter-rouge"><div class="highlight">
           <!-- do not split the below to multiple lines or the spacing will be replicated when served -->
-          <pre class="highlight"><code>{{ site.description }}</code></pre></div></div>
+          <pre class="highlight"><code>&nbsp;&nbsp;{{ site.description }}</code></pre></div></div>
 
         {% if site.show_downloads %}
         <ul class="downloads">
@@ -32,9 +32,8 @@
         {% endif %}
 
         Posts by recent history:<br/>
-        {% for category in site.categories %}
-        {%- assign catpath = category[0] -%}
-        <a href="{{ catpath | remove: ' ' }}">{{ category[0] }}</a><br/>
+        {% for month in site.month %}
+        <a href="{{ month.url }}">{{ month.title }}</a><br/>
         {% endfor %}
 
       </header>

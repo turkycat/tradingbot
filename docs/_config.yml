@@ -6,6 +6,7 @@
 title: tradingbot
 owner: Jesse Frush
 email: jesse.frush@gmail.com
+author: turkycat
 linkedin_url: linkedin.com/in/jessefrush/
 description: automate() the stock market
 url: "https://turkycat.github.io"
@@ -17,12 +18,11 @@ google_analytics:
 #github: [metadata]
 images: /images
 logo: /images/logo.png
-about: /about
+about: /contact
 css-path: /assets/css/style.css?v=
 
 # jekyll build settings
 remote_theme: turkycat/minimal
-#theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
@@ -40,26 +40,26 @@ kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
 
-permalink: /:year/:month/:title
+#permalink: /:year/:month/:title
 
 collections:
-  bymonth:
+  month:
     output: true
 
 defaults:
   - scope:
       path: ""
-      type: "posts"
+      type: "post"
     values:
-#      excerpt_separator: <!--preview-->
+      layout: post
+      permalink: /:categories/:slug
       start_exerpt: <!--start-->
-      end_exerpt: <!--end-->      
+      end_exerpt: <!--end-->
   - scope:
       path: ""
-      type: "bymonth"
+      type: "month"
     values:
-#      layout: monthly
-      layout: default
+      layout: category
       permalink: /:title
 
 # processing controls

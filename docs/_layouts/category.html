@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<br/>
+<small>&nbsp;viewing posts by month</small>
+<br/>
+<h1>{{ page.title }}</h1>
+<< previous&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;next >>
+<br/>
+<br/>
+
+<hr>
+
+{% for post in site.categories[page.category] %}
+  {{ post.date | date: "%A, %b %d" }}
+    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+  {%- assign extract = post.content | split: "<!--start-->" | last | split: "<!--end-->" | first -%}
+  {{ extract | strip_html }}
+  <p></p>
+{% endfor %}
+
+{{ content }}
