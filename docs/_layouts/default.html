@@ -18,8 +18,10 @@
           <a href="{{ "/" | absolute_url }}"><img src="{{ site.logo | relative_url }}" alt="Logo" /></a>
         {% endif %}
 
-        <p></p>
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ site.description }}</code></pre></div></div>
+        <br/><br/>
+        <div class="language-plaintext highlighter-rouge"><div class="highlight">
+          <!-- do not split the below to multiple lines or the spacing will be replicated when served -->
+          <pre class="highlight"><code>{{ site.description }}</code></pre></div></div>
 
         {% if site.show_downloads %}
         <ul class="downloads">

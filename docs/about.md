@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-[>> go back]({{ site.url | relative_url }})
+[>> go back]({{ '/' | absolute_url }})
 
 # contact me
   
