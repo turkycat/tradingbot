@@ -32,6 +32,7 @@ plugins:
 
 lsi: false
 safe: true
+future: false
 incremental: false
 highlighter: rouge
 gist:
