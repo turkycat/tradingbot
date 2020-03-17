@@ -86,3 +86,8 @@ While the next image represents the same period of time, but on a 5 minute timef
 the same overall pattern can be observed, but it's clear from these two pictures that the perceived pattern changes drastically depending on the timeframe.
 
 TradingView (and most data sources) only saves OHLC datah. Yet when observing real time data hundreds of data points may be processed per candle. The takeaway here is that there may be behavioral differences with a software application that is developed using historical data and ran on live data. I'll table this for now, but it may be useful to restrict decision trees to only be executed at the close of a candle.
+
+
+```c
+// to be continued...
+```
