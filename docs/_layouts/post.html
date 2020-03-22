@@ -12,14 +12,14 @@ layout: default
 
 {{content}}
 
-{% if page.next %}
+{% if page.previous %}
 <div class="previous">
-  <a href="{{ page.next.url | relative_url }}">{{ << previous }}</a>
+  <a href="{{ page.previous.url | relative_url }}"><< previous post</a>
 </div>
 {% endif %}
 
 {% if page.next %}
-<div class="next">
-  <a href="{{ page.next.url | relative_url }}">{{ next >> }}</a>
+<div class="next" style="float: right;">
+  <a href="{{ page.next.url | relative_url }}">next post >></a>
 </div>
 {% endif %}
