@@ -12,7 +12,13 @@ namespace tws_console
         static void Main(string[] args)
         {
             Console.WriteLine("Initializing...");
+
             TwsClient client = new TwsClient();
+            client.Logger = Console.Out;
+
+            client.Connect(7497);
+
+            Console.WriteLine("hi there");
         }
     }
 
