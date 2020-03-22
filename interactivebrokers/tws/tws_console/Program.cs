@@ -19,6 +19,8 @@ namespace tws_console
 
             client.Connect(7497);
 
+
+
             while(client.IsConnected)
             {
                 Thread.Sleep(5000);

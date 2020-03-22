@@ -15,6 +15,7 @@ namespace tws_lib
 
         private EReaderMonitorSignal _signal;
         private EClientSocket _clientSocket;
+        private SynchronizationContext _syncContext;
 
         public TextWriter Logger
         {
@@ -39,6 +40,7 @@ namespace tws_lib
             ClientId = ++currentClientId;
             _signal = new EReaderMonitorSignal();
             _clientSocket = new EClientSocket(this, _signal);
+            _syncContext = SynchronizationContext.Current;
         }
 
         public void Connect(int port = 7496, string host = "127.0.0.1")
