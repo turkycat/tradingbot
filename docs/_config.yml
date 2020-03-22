@@ -75,7 +75,7 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - minimal
+#  - minimal
 
 include:
   - _layouts/
@@ -86,3 +86,4 @@ include:
   - script/
   - about.md
   - index.md
+  - minimal/

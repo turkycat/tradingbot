@@ -1,0 +1,3 @@
+[submodule "docs/minimal"]
+	path = docs/minimal
+	url = https://github.com/turkycat/minimal.git

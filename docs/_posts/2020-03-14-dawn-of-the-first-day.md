@@ -3,7 +3,6 @@ title: dawn of the first day
 date: 2020-03-14 14:10:58 -0700
 category: mar2020
 imageroot: /images/d0
-permalink: /
 ---
 
 <!--start-->
@@ -16,8 +15,6 @@ develop trading software that consistently and efficiently generates profits fro
 
 ### initial resources:  
 - [http://reddit.com/r/algotrading](http://reddit.com/r/algotrading)  
-- youtube video on R (super old):  
-[https://www.youtube.com/watch?v=61_F2fcvrsw](https://www.youtube.com/watch?v=61_F2fcvrsw)  
 - API and resources available from TD Ameritrade and TradingView.  
 
 it seems R and Python are heavily preferred in the community. i've used R in college stats courses, but that was more than 5 years ago. I know that it is preferred for running statistical models and from what I've read on algotrading, it seems to have existing libraries and models that will help evaulate strategies.

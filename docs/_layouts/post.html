@@ -3,7 +3,7 @@ layout: default
 ---
 
 <br/>
-<small>{{ page.date | date: "%-d %B %Y" }}</small>
+<small>{{ page.date | date: "%A, %B %-d, %Y" | downcase }}</small>
 <h1>{{ page.title | downcase }}</h1>
 
 <p class="view">by {{ page.author | default: site.author | downcase }}</p>
@@ -11,3 +11,15 @@ layout: default
 <hr>
 
 {{content}}
+
+{% if page.next %}
+<div class="previous">
+  <a href="{{ page.next.url | relative_url }}">{{ next >> }}</a>
+</div>
+{% endif %}
+
+{% if page.next %}
+<div class="next">
+  <a href="{{ page.next.url | relative_url }}">{{ next >> }}</a>
+</div>
+{% endif %}
