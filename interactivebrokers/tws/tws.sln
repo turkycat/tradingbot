@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tws_lib", "tws_lib\tws_lib.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwsRtdServer", "C:\TWS API\source\CSharpClient\TwsRtdServer\TwsRtdServer.csproj", "{C8900FAD-7FCC-4FF3-B2E4-2CEA9FFA128D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tws_wpf", "tws_wpf\tws_wpf.csproj", "{8D3BB280-6966-481A-A5F4-B141F76006C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C8900FAD-7FCC-4FF3-B2E4-2CEA9FFA128D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8900FAD-7FCC-4FF3-B2E4-2CEA9FFA128D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8900FAD-7FCC-4FF3-B2E4-2CEA9FFA128D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D3BB280-6966-481A-A5F4-B141F76006C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D3BB280-6966-481A-A5F4-B141F76006C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D3BB280-6966-481A-A5F4-B141F76006C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D3BB280-6966-481A-A5F4-B141F76006C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -23,7 +23,10 @@ namespace tws_lib
 
         public bool IsConnected
         {
-            get; set;
+            get
+            {
+                return _clientSocket.IsConnected();
+            }
         }
 
         public int ClientId
@@ -64,7 +67,6 @@ namespace tws_lib
 
         public void Disconnect()
         {
-            IsConnected = false;
             _clientSocket.eDisconnect();
         }
 
