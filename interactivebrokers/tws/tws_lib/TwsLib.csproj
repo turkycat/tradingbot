@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TwsLogger.cs" />
+    <Compile Include="Interfaces\ILogHandler.cs" />
+    <Compile Include="TwsWrapper.cs" />
+    <Compile Include="Messages\FundamentalsMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TwsClient.cs" />
   </ItemGroup>
@@ -50,8 +54,6 @@
       <Name>TwsRtdServer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="messages\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

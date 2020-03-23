@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
-using tws_lib;
+using TwsLib;
 
 namespace tws_console
 {
@@ -14,10 +14,10 @@ namespace tws_console
         {
             Console.WriteLine("Initializing...");
 
-            TwsClient client = new TwsClient();
-            client.Logger = Console.Out;
+            TwsClient client = new TwsClient(Console.Out);
 
             client.Connect(7497);
+
 
 
 

@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tws_lib
+namespace TwsLib
 {
    public interface ILogHandler
     {
-        void OnMessage(string message);
+        void Log(string message);
 
-        void OnErrorMessage(string message);
+        void LogError(string message);
     }
 }

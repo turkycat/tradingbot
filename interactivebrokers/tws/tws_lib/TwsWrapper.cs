@@ -3,24 +3,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using TwsLib.Messages;
 
-namespace tws_lib
+namespace TwsLib
 {
     public class TwsWrapper : EWrapper
     {
-        private static int currentRequestId = 0;
-
         ILogHandler _handler;
+        private SynchronizationContext _context;
 
         public TwsWrapper(ILogHandler handler)
         {
             _handler = handler;
-        }
-
-        private int NextRequestId()
-        {
-            return ++currentRequestId;
+            _context = SynchronizationContext.Current;
         }
 
         /*
@@ -28,139 +25,139 @@ namespace tws_lib
          */
         void EWrapper.error(Exception e)
         {
-            _handler.OnErrorMessage("Exception occurred: " + e.Message);
+            _handler.LogError("Exception occurred: " + e.Message);
         }
 
         void EWrapper.error(int id, int errorCode, string errorMsg)
         {
-            _handler.OnErrorMessage(String.Format("An error occurred with id: {0}. Error Code: {1}, Error Message: {2}", id, errorCode, errorMsg));
+            _handler.LogError(String.Format("An error occurred with id: {0}. Error Code: {1}, Error Message: {2}", id, errorCode, errorMsg));
         }
 
         void EWrapper.error(string str)
         {
-            _handler.OnErrorMessage(str);
+            _handler.LogError(str);
         }
 
         public void accountDownloadEnd(string account)
         {
-            _handler.OnMessage("accountDownloadEnd");
+            _handler.Log("accountDownloadEnd");
         }
 
         public void accountSummary(int reqId, string account, string tag, string value, string currency)
         {
-            _handler.OnMessage("accountSummary");
+            _handler.Log("accountSummary");
         }
 
         public void accountSummaryEnd(int reqId)
         {
-            _handler.OnMessage("accountSummaryEnd");
+            _handler.Log("accountSummaryEnd");
         }
 
         public void accountUpdateMulti(int requestId, string account, string modelCode, string key, string value, string currency)
         {
-            _handler.OnMessage("accountUpdateMulti");
+            _handler.Log("accountUpdateMulti");
         }
 
         public void accountUpdateMultiEnd(int requestId)
         {
-            _handler.OnMessage("accountUpdateMultiEnd");
+            _handler.Log("accountUpdateMultiEnd");
         }
 
         public void bondContractDetails(int reqId, ContractDetails contract)
         {
-            _handler.OnMessage("bondContractDetails");
+            _handler.Log("bondContractDetails");
         }
 
         public void commissionReport(CommissionReport commissionReport)
         {
-            _handler.OnMessage("commissionReport");
+            _handler.Log("commissionReport");
         }
 
         public void completedOrder(Contract contract, Order order, OrderState orderState)
         {
-            _handler.OnMessage("completedOrder");
+            _handler.Log("completedOrder");
         }
 
         public void completedOrdersEnd()
         {
-            _handler.OnMessage("completedOrdersEnd");
+            _handler.Log("completedOrdersEnd");
         }
 
         public void connectAck()
         {
-            _handler.OnMessage("connectAck");
+            _handler.Log("connectAck");
         }
 
         public void connectionClosed()
         {
-            _handler.OnMessage("connectionClosed");
+            _handler.Log("connectionClosed");
         }
 
         public void contractDetails(int reqId, ContractDetails contractDetails)
         {
-            _handler.OnMessage("contractDetails");
+            _handler.Log("contractDetails");
         }
 
         public void contractDetailsEnd(int reqId)
         {
-            _handler.OnMessage("contractDetailsEnd");
+            _handler.Log("contractDetailsEnd");
         }
 
         public void currentTime(long time)
         {
-            _handler.OnMessage("currentTime");
+            _handler.Log("currentTime");
         }
 
         public void deltaNeutralValidation(int reqId, DeltaNeutralContract deltaNeutralContract)
         {
-            _handler.OnMessage("deltaNeutralValidation");
+            _handler.Log("deltaNeutralValidation");
         }
 
         public void displayGroupList(int reqId, string groups)
         {
-            _handler.OnMessage("displayGroupList");
+            _handler.Log("displayGroupList");
         }
 
         public void displayGroupUpdated(int reqId, string contractInfo)
         {
-            _handler.OnMessage("displayGroupUpdated");
+            _handler.Log("displayGroupUpdated");
         }
 
         public void error(Exception e)
         {
-            _handler.OnMessage("error");
+            _handler.Log("error");
         }
 
         public void error(string str)
         {
-            _handler.OnMessage("error");
+            _handler.Log("error");
         }
 
         public void error(int id, int errorCode, string errorMsg)
         {
-            _handler.OnMessage("error");
+            _handler.Log("error");
         }
 
         public void execDetails(int reqId, Contract contract, Execution execution)
         {
-            _handler.OnMessage("execDetails");
+            _handler.Log("execDetails");
         }
 
         public void execDetailsEnd(int reqId)
         {
-            _handler.OnMessage("execDetailsEnd");
+            _handler.Log("execDetailsEnd");
         }
 
         public void familyCodes(FamilyCode[] familyCodes)
         {
-            _handler.OnMessage("familyCodes");
+            _handler.Log("familyCodes");
         }
 
         public event Action<FundamentalsMessage> FundamentalData;
 
         public void fundamentalData(int reqId, string data)
         {
-            _handler.OnMessage("fundamentalData");
+            _handler.Log("fundamentalData");
 
             var tmp = FundamentalData;
 
@@ -169,307 +166,307 @@ namespace tws_lib
 
         public void headTimestamp(int reqId, string headTimestamp)
         {
-            _handler.OnMessage("headTimestamp");
+            _handler.Log("headTimestamp");
         }
 
         public void histogramData(int reqId, HistogramEntry[] data)
         {
-            _handler.OnMessage("histogramData");
+            _handler.Log("histogramData");
         }
 
         public void historicalData(int reqId, Bar bar)
         {
-            _handler.OnMessage("historicalData");
+            _handler.Log("historicalData");
         }
 
         public void historicalDataEnd(int reqId, string start, string end)
         {
-            _handler.OnMessage("historicalDataEnd");
+            _handler.Log("historicalDataEnd");
         }
 
         public void historicalDataUpdate(int reqId, Bar bar)
         {
-            _handler.OnMessage("historicalDataUpdate");
+            _handler.Log("historicalDataUpdate");
         }
 
         public void historicalNews(int requestId, string time, string providerCode, string articleId, string headline)
         {
-            _handler.OnMessage("historicalNews");
+            _handler.Log("historicalNews");
         }
 
         public void historicalNewsEnd(int requestId, bool hasMore)
         {
-            _handler.OnMessage("historicalNewsEnd");
+            _handler.Log("historicalNewsEnd");
         }
 
         public void historicalTicks(int reqId, HistoricalTick[] ticks, bool done)
         {
-            _handler.OnMessage("historicalTicks");
+            _handler.Log("historicalTicks");
         }
 
         public void historicalTicksBidAsk(int reqId, HistoricalTickBidAsk[] ticks, bool done)
         {
-            _handler.OnMessage("historicalTicksBidAsk");
+            _handler.Log("historicalTicksBidAsk");
         }
 
         public void historicalTicksLast(int reqId, HistoricalTickLast[] ticks, bool done)
         {
-            _handler.OnMessage("historicalTicksLast");
+            _handler.Log("historicalTicksLast");
         }
 
         public void managedAccounts(string accountsList)
         {
-            _handler.OnMessage("managedAccounts");
+            _handler.Log("managedAccounts");
         }
 
         public void marketDataType(int reqId, int marketDataType)
         {
-            _handler.OnMessage("marketDataType");
+            _handler.Log("marketDataType");
         }
 
         public void marketRule(int marketRuleId, PriceIncrement[] priceIncrements)
         {
-            _handler.OnMessage("marketRule");
+            _handler.Log("marketRule");
         }
 
         public void mktDepthExchanges(DepthMktDataDescription[] depthMktDataDescriptions)
         {
-            _handler.OnMessage("mktDepthExchanges");
+            _handler.Log("mktDepthExchanges");
         }
 
         public void newsArticle(int requestId, int articleType, string articleText)
         {
-            _handler.OnMessage("newsArticle");
+            _handler.Log("newsArticle");
         }
 
         public void newsProviders(NewsProvider[] newsProviders)
         {
-            _handler.OnMessage("newsProviders");
+            _handler.Log("newsProviders");
         }
 
         public void nextValidId(int orderId)
         {
-            _handler.OnMessage("nextValidId");
+            _handler.Log("nextValidId");
         }
 
         public void openOrder(int orderId, Contract contract, Order order, OrderState orderState)
         {
-            _handler.OnMessage("openOrder");
+            _handler.Log("openOrder");
         }
 
         public void openOrderEnd()
         {
-            _handler.OnMessage("openOrderEnd");
+            _handler.Log("openOrderEnd");
         }
 
         public void orderBound(long orderId, int apiClientId, int apiOrderId)
         {
-            _handler.OnMessage("orderBound");
+            _handler.Log("orderBound");
         }
 
         public void orderStatus(int orderId, string status, double filled, double remaining, double avgFillPrice, int permId, int parentId, double lastFillPrice, int clientId, string whyHeld, double mktCapPrice)
         {
-            _handler.OnMessage("orderStatus");
+            _handler.Log("orderStatus");
         }
 
         public void pnl(int reqId, double dailyPnL, double unrealizedPnL, double realizedPnL)
         {
-            _handler.OnMessage("pnl");
+            _handler.Log("pnl");
         }
 
         public void pnlSingle(int reqId, int pos, double dailyPnL, double unrealizedPnL, double realizedPnL, double value)
         {
-            _handler.OnMessage("pnlSingle");
+            _handler.Log("pnlSingle");
         }
 
         public void position(string account, Contract contract, double pos, double avgCost)
         {
-            _handler.OnMessage("position");
+            _handler.Log("position");
         }
 
         public void positionEnd()
         {
-            _handler.OnMessage("positionEnd");
+            _handler.Log("positionEnd");
         }
 
         public void positionMulti(int requestId, string account, string modelCode, Contract contract, double pos, double avgCost)
         {
-            _handler.OnMessage("positionMulti");
+            _handler.Log("positionMulti");
         }
 
         public void positionMultiEnd(int requestId)
         {
-            _handler.OnMessage("positionMultiEnd");
+            _handler.Log("positionMultiEnd");
         }
 
         public void realtimeBar(int reqId, long date, double open, double high, double low, double close, long volume, double WAP, int count)
         {
-            _handler.OnMessage("realtimeBar");
+            _handler.Log("realtimeBar");
         }
 
         public void receiveFA(int faDataType, string faXmlData)
         {
-            _handler.OnMessage("receiveFA");
+            _handler.Log("receiveFA");
         }
 
         public void rerouteMktDataReq(int reqId, int conId, string exchange)
         {
-            _handler.OnMessage("rerouteMktDataReq");
+            _handler.Log("rerouteMktDataReq");
         }
 
         public void rerouteMktDepthReq(int reqId, int conId, string exchange)
         {
-            _handler.OnMessage("rerouteMktDepthReq");
+            _handler.Log("rerouteMktDepthReq");
         }
 
         public void scannerData(int reqId, int rank, ContractDetails contractDetails, string distance, string benchmark, string projection, string legsStr)
         {
-            _handler.OnMessage("scannerData");
+            _handler.Log("scannerData");
         }
 
         public void scannerDataEnd(int reqId)
         {
-            _handler.OnMessage("scannerDataEnd");
+            _handler.Log("scannerDataEnd");
         }
 
         public void scannerParameters(string xml)
         {
-            _handler.OnMessage("scannerParameters");
+            _handler.Log("scannerParameters");
         }
 
         public void securityDefinitionOptionParameter(int reqId, string exchange, int underlyingConId, string tradingClass, string multiplier, HashSet<string> expirations, HashSet<double> strikes)
         {
-            _handler.OnMessage("securityDefinitionOptionParameter");
+            _handler.Log("securityDefinitionOptionParameter");
         }
 
         public void securityDefinitionOptionParameterEnd(int reqId)
         {
-            _handler.OnMessage("securityDefinitionOptionParameterEnd");
+            _handler.Log("securityDefinitionOptionParameterEnd");
         }
 
         public void smartComponents(int reqId, Dictionary<int, KeyValuePair<string, char>> theMap)
         {
-            _handler.OnMessage("smartComponents");
+            _handler.Log("smartComponents");
         }
 
         public void softDollarTiers(int reqId, SoftDollarTier[] tiers)
         {
-            _handler.OnMessage("softDollarTiers");
+            _handler.Log("softDollarTiers");
         }
 
         public void symbolSamples(int reqId, ContractDescription[] contractDescriptions)
         {
-            _handler.OnMessage("symbolSamples");
+            _handler.Log("symbolSamples");
         }
 
         public void tickByTickAllLast(int reqId, int tickType, long time, double price, int size, TickAttribLast tickAttriblast, string exchange, string specialConditions)
         {
-            _handler.OnMessage("tickByTickAllLast");
+            _handler.Log("tickByTickAllLast");
         }
 
         public void tickByTickBidAsk(int reqId, long time, double bidPrice, double askPrice, int bidSize, int askSize, TickAttribBidAsk tickAttribBidAsk)
         {
-            _handler.OnMessage("tickByTickBidAsk");
+            _handler.Log("tickByTickBidAsk");
         }
 
         public void tickByTickMidPoint(int reqId, long time, double midPoint)
         {
-            _handler.OnMessage("tickByTickMidPoint");
+            _handler.Log("tickByTickMidPoint");
         }
 
         public void tickEFP(int tickerId, int tickType, double basisPoints, string formattedBasisPoints, double impliedFuture, int holdDays, string futureLastTradeDate, double dividendImpact, double dividendsToLastTradeDate)
         {
-            _handler.OnMessage("tickEFP");
+            _handler.Log("tickEFP");
         }
 
         public void tickGeneric(int tickerId, int field, double value)
         {
-            _handler.OnMessage("tickGeneric");
+            _handler.Log("tickGeneric");
         }
 
         public void tickNews(int tickerId, long timeStamp, string providerCode, string articleId, string headline, string extraData)
         {
-            _handler.OnMessage("tickNews");
+            _handler.Log("tickNews");
         }
 
         public void tickOptionComputation(int tickerId, int field, double impliedVolatility, double delta, double optPrice, double pvDividend, double gamma, double vega, double theta, double undPrice)
         {
-            _handler.OnMessage("tickOptionComputation");
+            _handler.Log("tickOptionComputation");
         }
 
         public void tickPrice(int tickerId, int field, double price, TickAttrib attribs)
         {
-            _handler.OnMessage("tickPrice");
+            _handler.Log("tickPrice");
         }
 
         public void tickReqParams(int tickerId, double minTick, string bboExchange, int snapshotPermissions)
         {
-            _handler.OnMessage("tickReqParams");
+            _handler.Log("tickReqParams");
         }
 
         public void tickSize(int tickerId, int field, int size)
         {
-            _handler.OnMessage("tickSize");
+            _handler.Log("tickSize");
         }
 
         public void tickSnapshotEnd(int tickerId)
         {
-            _handler.OnMessage("tickSnapshotEnd");
+            _handler.Log("tickSnapshotEnd");
         }
 
         public void tickString(int tickerId, int field, string value)
         {
-            _handler.OnMessage("tickString");
+            _handler.Log("tickString");
         }
 
         public void updateAccountTime(string timestamp)
         {
-            _handler.OnMessage("updateAccountTime");
+            _handler.Log("updateAccountTime");
         }
 
         public void updateAccountValue(string key, string value, string currency, string accountName)
         {
-            _handler.OnMessage("updateAccountValue");
+            _handler.Log("updateAccountValue");
         }
 
         public void updateMktDepth(int tickerId, int position, int operation, int side, double price, int size)
         {
-            _handler.OnMessage("updateMktDepth");
+            _handler.Log("updateMktDepth");
         }
 
         public void updateMktDepthL2(int tickerId, int position, string marketMaker, int operation, int side, double price, int size, bool isSmartDepth)
         {
-            _handler.OnMessage("updateMktDepthL2");
+            _handler.Log("updateMktDepthL2");
         }
 
         public void updateNewsBulletin(int msgId, int msgType, string message, string origExchange)
         {
-            _handler.OnMessage("updateNewsBulletin");
+            _handler.Log("updateNewsBulletin");
         }
 
         public void updatePortfolio(Contract contract, double position, double marketPrice, double marketValue, double averageCost, double unrealizedPNL, double realizedPNL, string accountName)
         {
-            _handler.OnMessage("updatePortfolio");
+            _handler.Log("updatePortfolio");
         }
 
         public void verifyAndAuthCompleted(bool isSuccessful, string errorText)
         {
-            _handler.OnMessage("verifyAndAuthCompleted");
+            _handler.Log("verifyAndAuthCompleted");
         }
 
         public void verifyAndAuthMessageAPI(string apiData, string xyzChallenge)
         {
-            _handler.OnMessage("verifyAndAuthMessageAPI");
+            _handler.Log("verifyAndAuthMessageAPI");
         }
 
         public void verifyCompleted(bool isSuccessful, string errorText)
         {
-            _handler.OnMessage("verifyCompleted");
+            _handler.Log("verifyCompleted");
         }
 
         public void verifyMessageAPI(string apiData)
         {
-            _handler.OnMessage("verifyMessageAPI");
+            _handler.Log("verifyMessageAPI");
         }
     }
 }

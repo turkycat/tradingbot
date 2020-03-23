@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tws_console", "tws_console\tws_console.csproj", "{AA0E114B-9825-4B8C-8FB6-A71370956C43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tws_lib", "tws_lib\tws_lib.csproj", "{8B2F7F25-D5C9-4669-9A86-1E7A10F3E320}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwsLib", "tws_lib\TwsLib.csproj", "{8B2F7F25-D5C9-4669-9A86-1E7A10F3E320}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwsRtdServer", "C:\TWS API\source\CSharpClient\TwsRtdServer\TwsRtdServer.csproj", "{C8900FAD-7FCC-4FF3-B2E4-2CEA9FFA128D}"
 EndProject

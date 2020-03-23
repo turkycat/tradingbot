@@ -6,24 +6,19 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using IBApi;
-using IBSampleApp.Messages;
-using tws_lib;
+using TwsLib;
 
-namespace tws_lib
+namespace TwsLib
 {
-    public class TwsClient : ILogHandler
+    public class TwsClient
     {
         private static int currentClientId = 0;
+        private static int currentRequestId = 0;
 
+        private TwsLogger _logger;
         private TwsWrapper _wrapper;
         private EReaderMonitorSignal _signal;
         private EClientSocket _clientSocket;
-        private SynchronizationContext _context;
-
-        public TextWriter Logger
-        {
-            get; set;
-        }
 
         public bool IsConnected
         {
@@ -38,18 +33,18 @@ namespace tws_lib
             get; private set;
         }
 
-        public TwsClient()
+        public TwsClient(TextWriter writer)
         {
             ClientId = ++currentClientId;
-            _wrapper = new TwsWrapper(this);
+            _logger = new TwsLogger(writer);
+            _wrapper = new TwsWrapper(_logger);
             _signal = new EReaderMonitorSignal();
             _clientSocket = new EClientSocket(_wrapper, _signal);
-            _context = SynchronizationContext.Current;
         }
 
         public void Connect(int port = 7496, string host = "127.0.0.1")
         {
-            OnMessage(String.Format("Connect called with host: {0} port: {1}", port, host));
+            _logger.Log(String.Format("Connect called with host: {0} port: {1}", port, host));
             if (!IsConnected)
             {
                 if (host == null || host.Equals(""))
@@ -66,7 +61,7 @@ namespace tws_lib
                 }
                 catch (Exception)
                 {
-                    OnErrorMessage("Failed to connect. Please check your connection attributes.");
+                    _logger.LogError("Failed to connect. Please check your connection attributes.");
                 }
             }
         }
@@ -76,21 +71,9 @@ namespace tws_lib
             _clientSocket.eDisconnect();
         }
 
-        #region ILogHandler
-
-        protected void OnMessage(string message)
+        public int NextRequestId()
         {
-            if (Logger != null)
-            {
-                Logger.WriteLine(message);
-            }
+            return ++currentRequestId;
         }
-
-        protected void OnErrorMessage(string message)
-        {
-            OnMessage("Error: " + message);
-        }
-
-        #endregion
     }
 }

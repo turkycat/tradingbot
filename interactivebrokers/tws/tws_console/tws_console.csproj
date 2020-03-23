@@ -54,9 +54,9 @@
     <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\tws_lib\tws_lib.csproj">
+    <ProjectReference Include="..\tws_lib\TwsLib.csproj">
       <Project>{8b2f7f25-d5c9-4669-9a86-1e7a10f3e320}</Project>
-      <Name>tws_lib</Name>
+      <Name>TwsLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
